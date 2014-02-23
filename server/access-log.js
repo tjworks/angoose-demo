@@ -7,7 +7,7 @@ extension.preAuthorize = function(next, invocation){
     var Event = angoose.module("Event");
     // record last user access time
     var context = angoose.getContext();
-    var user = context.getPrinciapl();
+    var user = context.getPrincipal();
     //@todo: if no user in context, return
     
     //@todo:  if method  == 'signin', 
