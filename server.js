@@ -24,9 +24,11 @@ app.configure(function() {
 
 
 // angoose setup
-console.log("Init angoose")
+console.log("Init angoose");
+
+var accessLog = require("./server/access-log");
 var options = {
-    extensions:['angoose-users'],
+    extensions:['angoose-users', accessLog],
     modelDir:  './server',
     logging:'DEBUG',
     mongo_opts:'localhost:27017/test'
