@@ -9,7 +9,7 @@ log4js.getLogger('angoose').setLevel(log4js.levels.DEBUG);
 log4js.getLogger('access-log').setLevel(log4js.levels.DEBUG);
 var logger=log4js.getLogger('test');
 logger.setLevel(log4js.levels.DEBUG);
-console.log=function(){};
+//console.log=function(){};
 
 var accessLog = require("./../server/access-log");
 var options = {
@@ -40,13 +40,17 @@ function initUser(done){
             testUser=user;
             return done();
         }
-        testUser.save(function(err,user){
+        u.save(function(err,user){
             if(err){
                 done(err);
             }else{
-                testUser=user;
-                logger.debug("created testUser :"+JSON.stringify(user));
-                done();
+                if(user){
+                    testUser=user;
+                    logger.debug("created testUser :"+JSON.stringify(user));
+                    done();
+                }else{
+                    done("creat user failed")
+                }
             }
         })
     })
@@ -114,7 +118,7 @@ describe('test of access-log extension', function(){
     })
 
     describe('should update last login event after access other service',function(){
-        var delay=5000
+        var delay=1000
         this.timeout(delay*2+10000)
         it('login',function(done){
             LoginService.signin(testUser.email,'xxx',function(err, user){
@@ -145,7 +149,7 @@ describe('test of access-log extension', function(){
             })
         });
         it('wait for db update finish', function(done){
-            setTimeout(done, 1000);
+            setTimeout(done, 500);
         })
         it('event with correct info',function(done){
             findLastLoginEvent(testUser._id,function(err,event){
@@ -156,7 +160,7 @@ describe('test of access-log extension', function(){
             });
         })
         it('wait for log flush', function(done){
-            setTimeout(done, 1000);
+            setTimeout(done, 500);
         })
     })
 
