@@ -1,5 +1,5 @@
 var angoose = require("angoose");
-
+var _ = require("underscore")
 var extension = {name: 'access-log'}
 
 var log4js = require("log4js")
@@ -28,24 +28,30 @@ extension.postInvoke = function (next, data) {
                 actor: {
                     _id: data.userId
                 },
-                value: 0
+                value:{
+                    length:0
+                }
             }
         }).save(function (err) {
                 if (err) log.error(err)
             })
     } else {
         log.debug('other access');
-        Event.findOne({'event_data.actor._id': user._id})
+        Event.findOne({'event_data.actor._id': user._id,'event_data.name':'user-login'})
             .sort({'event_data.ts': -1})
             .exec(function (err, doc) {
                 if (err) {
                     log.error(err)
                 }
                 else if (doc) {
-                    doc.event_data.value = Date.now() - doc.event_data.ts;
-                    log.debug("user " + doc.event_data.actor._id + " keep alive : " + doc.event_data.value + "ms")
-                    doc.save(function (err) {
+                    // event's schema do not list doc.event_data.value's properties ,update it atomic,
+                    var value=_.clone(doc.event_data.value)
+                    value.length=Date.now() - doc.event_data.ts;
+                    doc.event_data.value = value;
+                    log.debug("user " + doc.event_data.actor._id + " keep alive : " + doc.event_data.value.length + "ms")
+                    doc.save(function (err,event) {
                         if (err) log.error(err)
+                        log.debug("updated event : " + JSON.stringify(event))
                     })
                 }
             })

@@ -7,7 +7,7 @@ var EventSchema = new mongoose.Schema({
     event_data: {
         ts: Date,
         name: String,
-        value: Mixed,
+        value:Mixed,
         desc: String,
         tags: [String],
         actor: { _id: ObjectId }
