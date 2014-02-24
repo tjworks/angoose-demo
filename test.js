@@ -25,7 +25,6 @@ process.on('uncaughtException',function(e) {
 
 // test code
 
-var LoginService = angoose.client().module("LoginService");
 var UserModel = require("angoose-users/user-model");
 
 var u = new UserModel({
@@ -46,7 +45,7 @@ function setup(cb){
 }
 
 setup(function(user){
-    
+
     console.log("Got user", user)
     var service = angoose.client().module("LoginService");
     service.signin(u.email, "xxx", function(err, user){
@@ -59,4 +58,5 @@ setup(function(user){
     });
     
 })
+
 

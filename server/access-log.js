@@ -2,27 +2,54 @@ var angoose = require("angoose");
 
 var extension = {name: 'access-log'}
 
-extension.preAuthorize = function(next, invocation){
-    next();
-    var Event = angoose.module("Event");
-    // record last user access time
-    var context = angoose.getContext();
-    var user = context.getPrincipal();
-    //@todo: if no user in context, return
-    
-    //@todo:  if method  == 'signin', 
-    // 1) record login event
-    // event_data.name:  user-login
-    // desc: User xxx logged in
-    // actor._id: user id
-    // tm: new Date()
-    // value: { length: 0 } 
-    
-    //@otherwise
-    // find user's lastest login event
-    // update it's value.length to be: now - loginTime  
-    // if latest login event is more than session timeout, error case or create a login event? 
-}
+var log4js = require("log4js")
+var log = log4js.getLogger("access-log")
+log.setLevel(log4js.levels.DEBUG)
 
+extension.postInvoke = function (next, data) {
+    next(null, data);
+    var Event = angoose.module("Event");
+    var context = angoose.getContext();
+    var invocation = context.getInvocation()
+//    var user = context.getPrincipal();  TODO
+    var user = context.getRequest().session.user;
+    log.debug("post Invoke :" + JSON.stringify(invocation));
+    log.debug("get user from context :" + JSON.stringify(user));
+    if (!user || !user._id) {
+        log.warn('there is no user');
+        return;
+    }
+    if (invocation.clazz == 'LoginService' && invocation.method == 'signin') {
+        log.debug(data.userId + ' signIn access');
+        new Event({
+            event_data: {
+                name: 'user-login',
+                ts: new Date(),
+                actor: {
+                    _id: data.userId
+                },
+                value: 0
+            }
+        }).save(function (err) {
+                if (err) log.error(err)
+            })
+    } else {
+        log.debug('other access');
+        Event.findOne({'event_data.actor._id': user._id})
+            .sort({'event_data.ts': -1})
+            .exec(function (err, doc) {
+                if (err) {
+                    log.error(err)
+                }
+                else if (doc) {
+                    doc.event_data.value = Date.now() - doc.event_data.ts;
+                    log.debug("user " + doc.event_data.actor._id + " keep alive : " + doc.event_data.value + "ms")
+                    doc.save(function (err) {
+                        if (err) log.error(err)
+                    })
+                }
+            })
+    }
+}
 
 module.exports = extension;
