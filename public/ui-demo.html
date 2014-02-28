@@ -15,7 +15,9 @@
 			.selected { font-size:130% } 
 		</style>
 	</head>
-	<body style="padding:100px">
+	<body ng-app="demo" style="margin:10px 200px ">
+		<ng-view />
+		 
 		 <h3>
 		 <a href="/deform/todo/list">Angoose UI Demo</a>
 		 </h3>
@@ -24,6 +26,13 @@
 		 <a href="/todomvc">Todo MVC Demo</a>
 		 </h3>
 		 
+		<script src="http://todomvc.com/architecture-examples/angularjs/bower_components/todomvc-common/base.js"></script>
+		<script src="http://todomvc.com/architecture-examples/angularjs/bower_components/angular/angular.js"></script>
+		<script src="http://todomvc.com/architecture-examples/angularjs/bower_components/angular-route/angular-route.js"></script>
+		
+		
+		<script src="/angoose/angoose-client.js"></script>
+		<script src="/angular-app.js"></script>
 		 
 	</body>
 </html>

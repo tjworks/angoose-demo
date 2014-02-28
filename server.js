@@ -22,18 +22,28 @@ app.configure(function() {
     app.use(express.static( './public'));
 });
 
-
 // angoose setup
 console.log("Init angoose");
-
-var accessLog = require("./server/access-log");
+require("angoose-users");
+//var accessLog = require(ROOT+"/server/access-log");
 var options = {
-    extensions:['angoose-users', accessLog],
+    extensions:[ROOT+'/node_modules/angoose-users','angoose-ui', ROOT+"/server/access-log"],
     modelDir:  './server',
     logging:'DEBUG',
     mongo_opts:'localhost:27017/test'
 };    
 require("angoose").init(app, options);
+
+app.get("/todomvc", function(req, res){
+    var fs = require("fs");
+    res.writeHead(200, { "Content-Type" : "text/html" });
+    fs.createReadStream("./public/todomvc.html").pipe(res); 
+});
+app.get("/deform/*", function(req, res){
+    var fs = require("fs");
+    res.writeHead(200, { "Content-Type" : "text/html" });
+    fs.createReadStream("./public/ui-demo.html").pipe(res); 
+}); 
 
 http.createServer(app).listen(8080);
 
