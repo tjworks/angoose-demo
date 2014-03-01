@@ -1,38 +1,42 @@
-<html lang="en" data-framework="angularjs">
+<html lang="en" data-framework="angularjs" ng-app="demo">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Angoose • Todo</title>
-		<link rel="stylesheet" href="http://todomvc.com/architecture-examples/angularjs/bower_components/todomvc-common/base.css">
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" type="text/css">
 		<link rel="stylesheet" href="/css/main.css" type="text/css">
 		<link rel="stylesheet" href="/css/bootstrap.css" type="text/css">
-		<link rel="stylesheet" href="/css/perfectum.css" type="text/css">
-		<link rel="stylesheet" href="/css/perfectum-responsive.css" type="text/css">
 		<link rel="stylesheet" href="/css/font-awesome.css" type="text/css">
 		<style>
-			[ng-cloak] { display: none; }
-			.selected { font-size:130% } 
+			div[ng-cloak] { display: none; }
 		</style>
 	</head>
-	<body ng-app="demo" style="margin:10px 200px ">
-		<ng-view />
-		 
-		 <h3>
-		 <a href="/deform/todo/list">Angoose UI Demo</a>
-		 </h3>
-		 
-		 <h3>
-		 <a href="/todomvc">Todo MVC Demo</a>
-		 </h3>
-		 
-		<script src="http://todomvc.com/architecture-examples/angularjs/bower_components/todomvc-common/base.js"></script>
-		<script src="http://todomvc.com/architecture-examples/angularjs/bower_components/angular/angular.js"></script>
-		<script src="http://todomvc.com/architecture-examples/angularjs/bower_components/angular-route/angular-route.js"></script>
+	<body  style="margin:10px 200px ">
+		<!-- navigation bar -->
+		<div id="nav-content" class="navbar navbar-fixed-top no-print" >
+			<div ng-include="'/templates/navbar.tpl'"></div>
+		</div>
+	
+		<!-- Bootstrap Alert -->
+		<div id="alerts" class="container" ng-if="alerts.length>0"  ng-cloak>
+			<alert ng-repeat="alert in alerts" type="alert.type" close="removeAlert($index)" >  
+					{{alert.msg}} <span ng-if="alert.count > 1">({{ alert.count }} more like this)</span>
+			</alert>
+		</div>
 		
+		<!-- Main body -->
+		<ng-view></ng-view>
 		
+		<!-- External dependencies -->
+		<script src="/lib/angular.js"></script>
+		<script src="/lib/angular-route.js"></script>
+		<script src="/lib/ui-bootstrap-tpls-0.6.0.js"></script>
+
+
+		<!-- Angoose client -->
 		<script src="/angoose/angoose-client.js"></script>
-		<script src="/angular-app.js"></script>
-		 
+		<!-- main app -->
+		<script src="/ui-demo-app.js"></script>
+		
+		
 	</body>
 </html>

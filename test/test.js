@@ -7,9 +7,8 @@ logger.setLevel(logging.levels.DEBUG);
 // angoose setup
 console.log("Init angoose");
 
-var accessLog = require("./server/access-log");
 var options = {
-    extensions:['angoose-users', accessLog],
+    extensions:['angoose-users' ],
     modelDir:  './server',
     logging:'DEBUG',
     mongo_opts:'localhost:27017/test'
@@ -19,9 +18,6 @@ angoose.init(null, options);
 process.on('uncaughtException',function(e) {
     console.log(" Unhandled Error caught in server.js -----> : ",e,  e.stack);
 });
- 
-
-
 
 // test code
 
@@ -30,7 +26,7 @@ var UserModel = require("angoose-users/user-model");
 var u = new UserModel({
     email:'john@demo.com',
     password:'xxx',
-    roles:['admin']
+    roles:'admin'
 });
 
 function setup(cb){

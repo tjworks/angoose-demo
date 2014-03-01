@@ -5,7 +5,7 @@
  *
  * @type {angular.Module}
  */
-var todomvc = angular.module('demo', ['ngRoute', 'angoose.client', 'angoose.ui']).config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
+var todomvc = angular.module('demo', ['ngRoute', 'angoose.client']).config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.when('/:selectedStatus?', {templateUrl:'todomvc-index.html', controller: 'TodoCtrl'})
      $locationProvider.html5Mode(true);
 }]);
