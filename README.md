@@ -56,7 +56,7 @@ Angular template files
 
  
 Angoose Authorization
--------------
+---------------------
 
 An alpha version of the authorizatoin extension is included in the demo. To activate the extension,  you use the `extensions` configuration when init angoose. 
 
@@ -112,6 +112,22 @@ If, after you logged in as a non-admin user and you found yourself getting "Acce
  
 
       
+
+
+Angoose Administrator UI
+------------------------
+
+This demo includes an alpha version of the `angoose.ui` extension which provides a back office administrator UI to the mongoose models. For each mongoose model, a set of
+automatic angular routes are setup:
+
+* /deform/model-name/list
+* /deform/model-name/update/xxxx
+* /deform/model-name/view/xxxx
+
+With these automatic routes and corresponding pages, you can perform some simple add/modify/delete/list tasks for the mongoose models. The intention is to make this
+administrator UI highly customizable so it can be used elsewhere, not limited to the admin interface. 
+
+
 
 
 
