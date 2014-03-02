@@ -6,6 +6,7 @@ var demo = angular.module('demo', ['ngRoute', 'angoose.client', 'angoose.ui','ui
             $routeProvider.when("/login", {templateUrl:'/templates/login.tpl'});
 }]);
 
+// login controller handles user login
 demo.controller('login-controller', function($scope, $rootScope, LoginService){ 
     // LoginService is provided by angoose-users extension
     enterscope($scope, "LoginCtrl");
