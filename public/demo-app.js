@@ -4,6 +4,8 @@ var demo = angular.module('demo', ['ngRoute', 'angoose.client', 'angoose.ui','ui
         .config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
             $locationProvider.html5Mode(true);
             $routeProvider.when("/login", {templateUrl:'/templates/login.tpl'});
+            $routeProvider.when("/todomvc", {templateUrl:'/templates/todo.tpl' });
+            $routeProvider.when('/:selectedStatus?', {templateUrl:'/templates/todo.tpl' });
 }]);
 
 // login controller handles user login

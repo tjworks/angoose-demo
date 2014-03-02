@@ -1,18 +1,5 @@
-<html lang="en" data-framework="angularjs">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Angoose • Todo</title>
-		<link rel="stylesheet" href="http://todomvc.com/architecture-examples/angularjs/bower_components/todomvc-common/base.css">
-		<style>
-			[ng-cloak] { display: none; }
-			.selected { font-size:130% } 
-		</style>
-	</head>
-	<body ng-app="demo">
-		<ng-view />
+ 
 		
-		<script type="text/ng-template" id="todomvc-index.html">
 			<section id="todoapp" ng-controller="TodoCtrl">
 				<header id="header">
 					
@@ -66,14 +53,5 @@
 				</p>
 				<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
 			</footer>
-		</script>
-		<script src="http://todomvc.com/architecture-examples/angularjs/bower_components/todomvc-common/base.js"></script>
-		<script src="/lib/angular.js"></script>
-		<script src="/lib/angular-route.js"></script>
-		
-		
-		<script src="/angoose/angoose-client.js"></script>
-		<script src="/todo-app.js"></script>
 		 
-	</body>
-</html>
+		 

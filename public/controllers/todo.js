@@ -1,17 +1,7 @@
 'use strict';
-
-/**
- * The main TodoMVC app module
- *
- * @type {angular.Module}
- */
-var todomvc = angular.module('demo', ['ngRoute', 'angoose.client']).config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
-    $routeProvider.when('/:selectedStatus?', {templateUrl:'todomvc-index.html', controller: 'TodoCtrl'})
-     $locationProvider.html5Mode(true);
-}]);
-
+ 
 /** controller */
-todomvc.controller('TodoCtrl', function TodoCtrl($scope, $location, Todo, filterFilter, $routeParams ) {
+demo.controller('TodoCtrl', function TodoCtrl($scope, $location, Todo, filterFilter, $routeParams ) {
         var todos = $scope.todos = Todo.$query();
         
         $scope.status = '';
