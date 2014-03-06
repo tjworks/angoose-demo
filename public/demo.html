@@ -3,7 +3,8 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Angoose • Demo</title>
-		<link rel="stylesheet" href="http://todomvc.com/architecture-examples/angularjs/bower_components/todomvc-common/base.css">
+        <link rel="stylesheet" href="/lib/redactor/css/redactor.css" />
+        <link rel="stylesheet" href="http://todomvc.com/architecture-examples/angularjs/bower_components/todomvc-common/base.css">
 		<link rel="stylesheet" href="/css/main.css" type="text/css">
 		<link rel="stylesheet" href="/css/bootstrap.css" type="text/css">
 		<link rel="stylesheet" href="/css/font-awesome.css" type="text/css">
@@ -26,11 +27,14 @@
 		
 		<!-- Main body -->
 		<ng-view></ng-view>
-		
+
 		<!-- External dependencies -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="/lib/redactor/redactor.js"></script>
 		<script src="/lib/angular.js"></script>
 		<script src="/lib/angular-route.js"></script>
 		<script src="/lib/ui-bootstrap-tpls-0.6.0.js"></script>
+        <script src="/lib/angular-redactor.js"></script>
 
 
 		<!-- Angoose client -->

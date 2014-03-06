@@ -1,6 +1,6 @@
 'use strict';
 
-var demo = angular.module('demo', ['ngRoute', 'angoose.client', 'angoose.ui','ui.bootstrap', "ui.bootstrap.tpls"])
+var demo = angular.module('demo', ['ngRoute', 'angoose.client', 'angoose.ui','ui.bootstrap', "ui.bootstrap.tpls",'angular-redactor'])
         .config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
             $locationProvider.html5Mode(true);
             $routeProvider.when("/login", {templateUrl:'/templates/login.tpl'});
