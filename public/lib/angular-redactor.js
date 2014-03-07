@@ -15,35 +15,15 @@
         require: "ngModel",
         link: function (scope, element, attrs, ngModel) {
 
-          var updateModel = function updateModel(value) {
-              scope.$apply(function () {
-                ngModel.$setViewValue(value);
-              });
-            },
-            options = {
-              changeCallback: updateModel
-            },
-            additionalOptions = attrs.redactor ?
-                                scope.$eval(attrs.redactor) : {},
-            editor,
-            $_element = angular.element(element);
-
-          angular.extend(options, additionalOptions);
-
-          // put in timeout to avoid $digest collision.  call render() to
-          // set the initial value.
-          $timeout(function () {
-            editor = $_element.redactor(options);
-            ngModel.$render();
-          });
-
-          ngModel.$render = function () {
-            if (angular.isDefined(editor)) {
-              $timeout(function() {
-                $_element.redactor('set', ngModel.$viewValue || '');
-              });
+          var options = attrs.redactor ? scope.$eval(attrs.redactor) : {};
+            options.changeCallback= function updateModel(value) {
+                scope.$apply(function () {
+                    ngModel.$setViewValue(value);
+                });
             }
-          };
+          $timeout(function () {
+              angular.element(element).redactor(options);
+          });
         }
       };
     }]);
