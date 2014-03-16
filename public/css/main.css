@@ -81,8 +81,9 @@ div.site-count > span {
 
 body {
 	padding-top:60px;
-	font-family: 'Raleway', sans-serif;
-!	font-family: 'Nunito', sans-serif;
+	font-family: 'Raleway', sans-serif,'Nunito';
+    background: #eaeaea url('../img/bg.png');
+
 }
 
 li.notification-unread{
@@ -372,8 +373,11 @@ ul.dropdown-menu li.divider {
 
 .btn-block+.dropdown-menu{width:inherit}
 
+.btn{
+    background-image: none;
+}
 .navbar-inner {
-		background-color: #53bf2f;
+    background-color: #0044cc;
 	background-image: none;
 }
 
@@ -677,6 +681,7 @@ div.treatment-type-ribbon {
 
 .deform-set{
 	margin-left: 20px;
+    margin-right: 20px;
 }
 .deform-items{
 	border-left: 1px solid #e5e5e5;
@@ -716,7 +721,7 @@ div.treatment-type-ribbon {
 }
 
   
-input.ng-pristine { border: solid black 1px; } 
+/*input.ng-pristine { border: solid black 1px; } */
 
 input.ng-dirty { border: solid black 3px;  }
 form.submitted input.ng-invalid { background-color: #FF9999; border: solid red 1px !important}
@@ -758,3 +763,78 @@ form.readonly .ng-pristine.ng-invalid-required, form.readonly .ng-pristine.ng-va
 div[deform-edit] {
 	padding-left:100px;
 }
+
+.list-heading{
+    top: -120px;
+    width: 100%;
+    font-size:50px;
+    font-weight: bold;
+    text-align: center;
+    color: #b3b3b3;
+    color: rgba(255, 255, 255, 0.3);
+    text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+    -webkit-text-rendering: optimizeLegibility;
+    -moz-text-rendering: optimizeLegibility;
+    -ms-text-rendering: optimizeLegibility;
+    -o-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+    margin-bottom: 20px;
+}
+.list-container{
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+.list-container .paging {
+    float: right;
+    margin-right: 10px;
+    margin-left: 10px;
+    line-height: 20px;
+
+}
+.list-container .newOne{
+    float: left;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.edit-container{
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin: auto;
+    padding-top: 30px;
+}
+.edit-container .form-horizontal .control-label{
+    text-align: left;
+}
+.edit-container .controls input,.edit-container .controls select{
+    width:200px;
+}
+.edit-container .form-actions{
+    background-color: white;
+}
+.list-container .list-table-header{
+    border-top: 1px solid #DDDCDC;
+    margin-top: 50px;
+}
+.list-page-header{
+    height:40px ;
+}
+.redactor_box .redactor_editor{
+    /*height: 200px;*/
+    width: 100%;
+    border: 1px solid #EBD6D6;
+    padding: 0px
+}
+.redactor_box .redactor_editor p{
+    padding: 10px
+}
+.redactor_box ul{
+        background-image: none;
+}
+/*.list-container table tr .btn{*/
+    /*display: none;*/
+/*}*/
+/*.list-container table tr:hover .btn{*/
+    /*display: inline-block;*/
+/*}*/

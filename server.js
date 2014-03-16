@@ -26,7 +26,8 @@ var options = {
     mongo_opts:'localhost:27017/test',
     'angoose-authorization':{
         'model-name':'Role'
-    }
+    },
+    "angoose-ui-template-dir":"./ui-templates"
 };    
 require("angoose").init(app, options);
 
@@ -40,8 +41,8 @@ function demo(req, res){
     fs.createReadStream("./public/demo.html").pipe(res); 
 }
 app.get("/todomvc", demo);
-app.get("/deform/*", demo); 
-app.get("/login", demo); 
+app.get("/deform/*", demo);
+app.get("/login", demo);
 app.get("/logout", demo);
 
 http.createServer(app).listen(8080);

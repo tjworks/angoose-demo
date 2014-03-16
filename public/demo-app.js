@@ -1,6 +1,6 @@
 'use strict';
 
-var demo = angular.module('demo', ['ngRoute', 'angoose.client', 'angoose.ui','ui.bootstrap', "ui.bootstrap.tpls"])
+var demo = angular.module('demo', ['ngRoute', 'angoose.client', 'angoose.ui','ui.bootstrap', "ui.bootstrap.tpls",'angular-redactor'])
         .config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
             $locationProvider.html5Mode(true);
             $routeProvider.when("/login", {templateUrl:'/templates/login.tpl'});
@@ -9,7 +9,7 @@ var demo = angular.module('demo', ['ngRoute', 'angoose.client', 'angoose.ui','ui
 }]);
 
 // login controller handles user login
-demo.controller('login-controller', function($scope, $rootScope, LoginService){ 
+demo.controller('login-controller', function($scope, $rootScope, LoginService,$location){
     // LoginService is provided by angoose-users extension
     enterscope($scope, "LoginCtrl");
     var login = $scope.login = {username: '', password:'' }  
@@ -19,7 +19,7 @@ demo.controller('login-controller', function($scope, $rootScope, LoginService){
            if(!err && user) {
                 console.log("LoginCtrl post login OK");
                 $rootScope.user = user;
-                //$location.path("/dash")
+                $location.path("/todomvc")
             }
             else {
                 console.error("Error login", err);

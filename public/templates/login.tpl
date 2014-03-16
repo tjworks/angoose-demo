@@ -1,49 +1,42 @@
-<div class="row-fluid" ng-controller='login-controller'>
-	<div class="box-header">
-	  	<h2>
-	  		Angoose UI Demo
-		</h2>
-	</div>
-	<div id="loginform" class="box-content" ng-if="user">
-		<div class="row-fluid -form-container" >
-				<fieldset class="-set">
-					<legend>Welcome {{user.email}}</legend>
-					
-					Trying following links:
-					
-					<a href="/deform/todo/list"><h4>Manage Todos</h4></a>
-					<a href="/deform/angoose-user/list"><h4>Manage Users</h4></a>
-					<a href="/deform/role/list"><h4>Manage Permissions</h4></a>
-				</fieldset>
-		</div>
-	</div>
-	<div id="loginform" class="box-content" ng-if="!user">
-		
-		<div class="box-content">
-			<button class="btn"   type="button" ng-click="adminLogin()">Log In as Demo Admin</button>
-		</div>
-		<div class="row-fluid -form-container" >
-			<form class="form-horizontal span12" ng-submit="doLogin()">
-				<fieldset class="-set">
-					<legend>Log In Using email/password</legend>
-					<div class="-fields">
-						<div class="control-group -field">
-							<div class="control-label"><label class="control-label">Email</label></div>
-		  					<div class="controls">
-				  				<input id="login-email" type="text"  ng-model="login.username" />
-			  				</div>
-						</div>
-						<div class="control-group -field">
-			  				<label class="control-label">Password</label>
-			  				<div class="controls"><input id="login-password" type="password"  ng-model="login.password"/></div>
-						</div>
-					</div>
-				</fieldset>
-				<button class="btn"   type="submit">Log In</button>
-				
-				
+<style>
+    .form-login {
+        max-width: 330px;
+        padding: 15px;
+        margin: 0 auto;
+    }
+    .form-login .form-heading{
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .form-login .form-control {
+        position: relative;
+        height: auto;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 10px;
+        font-size: 16px;
+    }
+    .form-login .form-control:focus {
+        z-index: 2;
+    }
+    .form-login input[type="email"] {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .form-login input[type="password"] {
+        margin-bottom: 10px;
+        width: 100%;
+    }
 
-			</form>
-		</div>
-	</div>
+</style>
+
+<div class="container " ng-controller='login-controller' >
+    <form id="loginform" ng-submit="doLogin()" class="form-login" role="form" ng-if="!user">
+        <h2 class="form-heading">Angoose UI Demo</h2>
+        <input class="form-control" placeholder="Email address"  autofocus id="login-email" ng-model="login.password" type="email" >
+        <input class="form-control" placeholder="Password"  id="login-password" ng-model="login.password"  type="password">
+        <button class="btn btn-primary btn-block"   type="submit">Log In</button>
+        <button class="btn btn-success btn-block"   type="button" ng-click="adminLogin()">Log In as Demo Admin</button>
+    </form>
 </div>
