@@ -4,7 +4,7 @@
     <div id="object-list" class="container list-container">
         <div class="list-page-header">
             <span deform-paginator class="paging" page-size="25" ></span>
-            <a class="btn newOne" href="/angoose/{{ dmeta.modelName }}/create"><i class="icon-plus"></i> New {{ dmeta.modelName }}  </a>
+            <a class="btn newOne btn-success"  href="/angoose/{{ dmeta.modelName }}/create"><i class="icon-plus"></i> New {{ dmeta.modelName }}  </a>
         </div>
         <table class="table table-striped table-hover">
         <thead class="list-table-header">
@@ -54,7 +54,7 @@
 	<a class="btn"  href="/angoose/{{ dmeta.modelName}}/update/{{instance._id}}">Edit</a>
 </script>
 <script type="text/ng-template" id="deform-list-action-edit-delete">
-	<a class="btn"  href="/angoose/{{ dmeta.modelName}}/update/{{instance._id}}">Edit</a>  
+	<a class="btn btn-info"  href="/angoose/{{ dmeta.modelName}}/update/{{instance._id}}">Edit</a>  
 	<span class="btn btn-danger"  ng-click="remove($index)" >Delete</span>
 </script>
 <script type="text/ng-template" id="deform-list-action-view-edit-delete">
