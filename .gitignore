@@ -13,6 +13,7 @@ logs/
 logs/epf.log.1
 
 build/angooseclient-generated.js
-angoose-client-generated.js
+angoose-client-generated.*
+*generated.tmp
 
 scratch.js
