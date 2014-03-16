@@ -1,21 +1,23 @@
-var mongoose = require('mongoose'),
+var mongoose = require('angoose/node_modules/mongoose'),
     Schema = mongoose.Schema,
     _ = require('underscore'),
     episode = require('./episode'),
-    Subtitle = require('./subtitle').Subtitle;
+    Subtitle = require('./subtitle');
 
+
+var episodeSchema = new Schema({
+    season: { type: Number, required: true},
+    number: { type: Number, required: true},
+    video: { type: String, required: true},
+    created: { type: Date, required: false, template:'datepicker',timepicker:false},
+}, {label:'Episodes'});
 
 var showSchema = new Schema({
-    name: { type: String, required: true},
+    name: { type: String, required: true, tags:['default-list'], label:'Show Name'},
     episodes: [
-        {
-            season: { type: Number, required: true},
-            number: { type: Number, required: true},
-            video: { type: String, required: true},
-            created: { type: Date, required: true},
-        }
+        episodeSchema
     ]
-});
+},{label:"TV Show"});
 
 
 showSchema.index({ 'name' : 1}, {unique: true});
@@ -96,4 +98,5 @@ showSchema.methods.addEpisode = function(season, number, videoPath, subtitlePath
 };
 
 
-exports.Show = mongoose.model('Show', showSchema, 'shows');
+//exports.Show = mongoose.model('Show', showSchema, 'shows');
+exports = mongoose.model('Show', showSchema, 'shows');

@@ -1,12 +1,13 @@
 var fs = require('fs'),
-    mongoose = require('mongoose'),
+    mongoose = require('angoose/node_modules/mongoose'),
     Schema = mongoose.Schema,
     textSearch = require('mongoose-text-search'),
-    srt = require("srt"),
-    jschardet = require("jschardet"),
-    iconv = require('iconv-lite'),
     _ = require('underscore');
-
+     
+    // srt = require("srt"),
+    // jschardet = require("jschardet"),
+    // iconv = require('iconv-lite'),
+//     
 
 var subtitleSchema = new Schema({
     episode: { type: Schema.Types.ObjectId, required: true},
@@ -45,4 +46,4 @@ subtitleSchema.statics.parseContent = function(srtPath, callback) {
 };
 
 
-exports.Subtitle = mongoose.model('Subtitle', subtitleSchema, 'subtitles');
+exports = mongoose.model('Subtitle', subtitleSchema, 'subtitles');

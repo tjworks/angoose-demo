@@ -1,4 +1,4 @@
-var mongoose = require('mongoose'),
+var mongoose = require('angoose/node_modules/mongoose'),
     Grid = require('gridfs-stream'),
     mime = require('mime'),
     fs = require('fs');
