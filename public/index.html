@@ -1,19 +1,62 @@
-<html lang="en" data-framework="angularjs">
+<html lang="en" data-framework="angularjs" ng-app="demo">
 	<head>
 		<meta charset="utf-8">
 		<title>Angoose Demo</title>
 		<link rel="stylesheet" href="http://todomvc.com/architecture-examples/angularjs/bower_components/todomvc-common/base.css">
+		
 	</head>
 	<body style="padding:100px">
 		 <h1>
-		 <a href="/login">Angoose Demo</a>
+		 <a href="/login">Angoose Demo!</a>
 		 </h1>
 		 <!-- <h3>
 		 <a href="/todomvc">Todo MVC Demo</a>
 		 </h3> -->
+		 
+		 <script src="/lib/angular.js"></script>
+		 <script>
+		var angularModule = angular.module;
+		var moduleRegistry = [ ];
+			angular.module = function(name, requires, configFn){
+				if(requires)
+					moduleRegistry.push(name);
+				return angularModule(name, requires, configFn);
+			}			
+			window.name = "NG_DEFER_BOOTSTRAP!";
+			angular.element(document).ready(function(){
+				angular.module("module1", []);
+				console.log("Angular DOM ready");
+				setTimeout( function(){
+					console.log("Do it now", moduleRegistry); 
+					console.log(angular.module('demo'));
+					angular.resumeBootstrap()
+				}, 100);
+			});
+		</script>
+		
+		<script>
+			var demo = angular.module('demo', ['module1']);
+			demo.config( function( ) {
+			            console.log("In app.config")
+			} ).run(function(){
+				console.log("Angular run");
+			});
+		 	
+		 	angular.module("module2", []).config(function(){
+		 		console.log("module1.config");
+		 	}).run(function(){
+		 		console.log("module1.run");
+		 	});
+				 	console.log("script end")
+
+	</script>
+		 
+		 
+		 
+		 
 	</body>
 </html>
 
 <script>
-	document.location="/login"
+	//document.location="/login"
 </script>

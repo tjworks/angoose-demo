@@ -1,7 +1,4 @@
- 
-	https://localhost:8043/css/main.css
-*/
-* { 
+{ 
 	-moz-box-sizing: border-box; 
 	-webkit-box-sizing: border-box; 
 	box-sizing: border-box; 
@@ -377,7 +374,7 @@ ul.dropdown-menu li.divider {
     background-image: none;
 }
 .navbar-inner {
-    background-color: #0044cc;
+    background-color: #53bf2f;
 	background-image: none;
 }
 

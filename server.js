@@ -20,9 +20,10 @@ app.configure(function() {
 });
 
 var options = {
-    extensions:['angoose-users', 'angoose-authorization', 'angoose-ui'],
+    extensions:['angoose-users',   'angoose-ui'],
     'module-dirs':  './server',
     logging:'DEBUG',
+    clientFile:'angoose-client-generated.tmp',
     mongo_opts:'localhost:27017/test',
     'angoose-authorization':{
         'model-name':'Role'
@@ -42,6 +43,7 @@ function demo(req, res){
 }
 app.get("/todomvc", demo);
 app.get("/deform/*", demo);
+app.get("/angoose/*", demo);
 app.get("/login", demo);
 app.get("/logout", demo);
 

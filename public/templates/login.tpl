@@ -39,4 +39,11 @@
         <button class="btn btn-primary btn-block"   type="submit">Log In</button>
         <button class="btn btn-success btn-block"   type="button" ng-click="adminLogin()">Log In as Demo Admin</button>
     </form>
+    
+    <div ng-if="user">
+    	<h2>
+    		Welcome, {{ user.email }}
+    	</h2>
+    	
+    </div>
 </div>
