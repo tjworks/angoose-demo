@@ -720,7 +720,7 @@ div.treatment-type-ribbon {
   
 /*input.ng-pristine { border: solid black 1px; } */
 
-input.ng-dirty { border: solid black 3px;  }
+/*input.ng-dirty { border: solid black 3px;  }*/
 form.submitted input.ng-invalid { background-color: #FF9999; border: solid red 1px !important}
 input.ng-invalid-required {   border: solid #BBB 2px !important}
 span.ng-invalid {color:red;font-weight:bold} 
