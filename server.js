@@ -22,7 +22,7 @@ app.configure(function() {
 var options = {
     extensions:['angoose-users',   'angoose-ui'],
     'module-dirs':  './server',
-    logging:'DEBUG',
+    logging:'INFO',
     clientFile:'angoose-client-generated.tmp',
     mongo_opts:'localhost:27017/test',
     'angoose-authorization':{
