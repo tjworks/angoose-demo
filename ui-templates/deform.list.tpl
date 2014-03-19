@@ -54,6 +54,7 @@
 	<a class="btn"  href="/angoose/{{ dmeta.modelName}}/update/{{instance._id}}">Edit</a>
 </script>
 <script type="text/ng-template" id="deform-list-action-edit-delete">
+	<a class="btn btn-success"  href="/angoose/{{ dmeta.modelName}}/view/{{instance._id}}">View</a>
 	<a class="btn btn-info"  href="/angoose/{{ dmeta.modelName}}/update/{{instance._id}}">Edit</a>  
 	<span class="btn btn-danger"  ng-click="remove($index)" >Delete</span>
 </script>
