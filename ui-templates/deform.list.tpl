@@ -32,7 +32,9 @@
         <tbody >
           <tr ng-repeat="instance in instances" ng-init="rowIndex=$index">
           	<td ng-repeat="fieldSchema in dmeta.columns" >
+          		<a href="/angoose/{{ dmeta.modelName }}/view/{{ instance._id }}">
           		<deform-render row="{{ rowIndex}}">{{ value }}</deform-render>
+          		</a>
           	</td>
             <td  ng-if="dmeta.actionColumn">
               	<deform-render row="{{rowIndex}}" path="$ACTION"></deform-render>
@@ -54,7 +56,6 @@
 	<a class="btn"  href="/angoose/{{ dmeta.modelName}}/update/{{instance._id}}">Edit</a>
 </script>
 <script type="text/ng-template" id="deform-list-action-edit-delete">
-	<a class="btn btn-success"  href="/angoose/{{ dmeta.modelName}}/view/{{instance._id}}">View</a>
 	<a class="btn btn-info"  href="/angoose/{{ dmeta.modelName}}/update/{{instance._id}}">Edit</a>  
 	<span class="btn btn-danger"  ng-click="remove($index)" >Delete</span>
 </script>

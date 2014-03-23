@@ -30,8 +30,7 @@
     "express": "*",
     "underscore": "*",
     "log4js":"*",
-    "angoose": "0.3.0",
-    "angoose-users":"*",
+    "angoose": "0.3.11",
     "should":"*"
   }
 }

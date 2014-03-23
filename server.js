@@ -20,9 +20,9 @@ app.configure(function() {
 });
 
 var options = {
-    extensions:['angoose-users',   'angoose-ui'],
+    extensions:['angoose-users',   'angoose-ui', 'angoose-authorization'],
     'module-dirs':  './server',
-    logging:'INFO',
+    logging:'TRACE',
     clientFile:'angoose-client-generated.tmp',
     mongo_opts:'localhost:27017/test',
     'angoose-authorization':{
