@@ -30,7 +30,7 @@ Node app script. Mainly used to set up the angoose configuration and routes for 
 
 **server/models/Todo**
 
-This is the sample "business" model. You may more model files here.
+This is the sample "business" model. You may put more model files here.
 
 Front End
 ---------
