@@ -27,7 +27,7 @@
   },
   "dependencies": {
     
-    "express": "*",
+    "express": "3.10.4",
     "underscore": "*",
     "log4js":"*",
     "angoose": "0.3.11",
