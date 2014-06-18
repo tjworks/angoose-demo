@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 var ROOT = process.cwd();
 var path= require("path"), http = require("http"), fs = require("fs");
 var express = require("express");
