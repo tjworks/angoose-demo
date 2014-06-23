@@ -1,11 +1,13 @@
 'use strict';
 
 var demo = angular.module('demo', ['ngRoute', 'angoose.client', 'angoose.ui','ui.bootstrap', "ui.bootstrap.tpls",'angular-redactor'])
-        .config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
+        .config(['$routeProvider','$locationProvider', '$sceProvider', function($routeProvider, $locationProvider, $sceProvider) {
             $locationProvider.html5Mode(true);
             $routeProvider.when("/login", {templateUrl:'/templates/login.tpl'});
             $routeProvider.when("/todomvc", {templateUrl:'/templates/todo.tpl' });
             $routeProvider.when('/:selectedStatus?', {templateUrl:'/templates/todo.tpl' });
+            
+            $sceProvider.enabled(false);
 }]);
 
 // login controller handles user login
