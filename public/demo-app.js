@@ -36,7 +36,7 @@ demo.controller('login-controller', function($scope, $rootScope, LoginService,$l
     }
 });
 
-demo.controller("nav-controller", function($scope, $rootScope,  $location, LoginService){
+demo.controller("nav-controller", function($scope, $rootScope,  $location, LoginService, angoose){
      $scope.doLogout = function(){
         LoginService.signout(function(){
             console.log("Sign out complete");
@@ -44,6 +44,8 @@ demo.controller("nav-controller", function($scope, $rootScope,  $location, Login
             $location.path("/login");
         });
     }
+     
+     $scope.managedModels = angoose.models
 });
 
 // default exception handler

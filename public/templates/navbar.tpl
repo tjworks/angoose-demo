@@ -8,10 +8,13 @@
                 <li class="dropdown"  ng-if="user" >
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"  >Admin <i class="icon-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/deform/todo/list">Manage Todos</a></li>
-                        <li><a href="/deform/angoose-user/list">Manage Users</a></li>
-                        <li><a href="/deform/role/list">Manage Permissions</a></li>
-
+                        
+                        <li ng-repeat="(modelName, model) in managedModels" ng-if="model.findOne">
+                        	<a href="/angoose/{{ modelName }}/list">Manage {{modelName}}</a>
+                        </li>
+                        
+                        <li><a href="/angoose/role/list">Manage Permissions</a></li>
+						
                     </ul>
                 </li>
                 <li class="pull-right"  ng-if="user" ><a href="#">  </a></li>
