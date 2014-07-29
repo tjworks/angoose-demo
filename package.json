@@ -23,14 +23,13 @@
     "request": "*",
     "node-mocks-http": "*",
     "q": "*"
-    
   },
   "dependencies": {
-    
-    "express": "3.10.4",
-    "underscore": "*",
-    "log4js":"*",
     "angoose": "0.3.11",
-    "should":"*"
+    "express": "3.10.4",
+    "gridfs-stream": "^0.5.1",
+    "log4js": "*",
+    "should": "*",
+    "underscore": "*"
   }
 }
