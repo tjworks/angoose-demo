@@ -14,6 +14,7 @@ var schema = mongoose.Schema({
 		joined: Date,
 		thumbnail:{type: Buffer, template:'file', accept:['image/jpeg','image/png'], label:'Thumbnail'},
 		greeting: {type: Buffer, template:'file', accept: ['audio/mpeg', 'audio/mp3'], label:'Greeting'},
+		video: {type: Buffer, template:'file', accept: ['video/webm', 'video/x-ms-wmv', 'video/mp4'], label:'Short Video'},
 		//manager:String,		
 		interests: [ interest ]
 	});

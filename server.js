@@ -9,7 +9,7 @@ logger.setLevel(logging.levels.DEBUG);
 var app = express();
 app.configure(function() {
     app.set('port', 8080);
-    app.use(express.bodyParser());
+    app.use(express.bodyParser({limit: '50mb'}));
     app.use(express.cookieParser());
     app.use(express.session({secret: '1234567890QWERTY'}));
     app.use(app.router);

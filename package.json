@@ -25,7 +25,7 @@
     "q": "*"
   },
   "dependencies": {
-    "angoose": "0.3.11",
+    "angoose": "0.3.21",
     "express": "3.10.4",
     "gridfs-stream": "^0.5.1",
     "log4js": "*",
